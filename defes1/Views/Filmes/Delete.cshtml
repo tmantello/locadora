@@ -1,0 +1,55 @@
+﻿@model defes1.Domain.Filme
+
+@{
+    ViewBag.Title = "Filmes";
+}
+
+<h2>Excluir Filmes</h2>
+
+<h3>Deseja realmente excluir?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeNome)
+        </dd>
+
+        <dt>
+            Gênero
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.GeneroNome)
+        </dd>
+
+        <dt>
+            Criado em
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeCriacao)
+        </dd>
+
+        <dt>
+            Ativo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeAtivo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

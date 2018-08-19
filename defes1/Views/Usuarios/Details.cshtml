@@ -1,0 +1,41 @@
+﻿@model defes1.Domain.Usuario
+
+@{
+    ViewBag.Title = "Usuários";
+}
+
+<h2>Detalhar Usuários</h2>
+
+<div>   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Login
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioLogin)
+        </dd>
+
+        <dt>
+            Senha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSenha)
+        </dd>
+
+        <dt>
+            Ativo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioAtivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<defes1.Models.FilmeModel>
+
+@{
+    ViewBag.Title = "Filmes";
+}
+
+<h2>Filmes</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Gênero
+        </th>
+        <th>
+            Criado em
+        </th>
+        <th>
+            Ativo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmeNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmeCriacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmeAtivo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.FilmeID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.FilmeID })
+        </td>
+    </tr>
+    }
+
+</table>

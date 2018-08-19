@@ -1,0 +1,60 @@
+﻿@model IEnumerable<defes1.Domain.Genero>
+
+@{
+    ViewBag.Title = "Gêneros";
+}
+
+<h2>Gêneros</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Criado em
+        </th>
+        <th>
+            Ativo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>            
+            <input type="checkbox" name="chkDelete" value="@item.GeneroID" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroCriacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroAtivo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.GeneroID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.GeneroID })
+        </td>
+    </tr>
+    }
+    <tr>
+        <td>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Excluir Selecionados" class="btn btn-default" />                    
+                </div>
+            }
+        </td>
+    </tr>
+</table>

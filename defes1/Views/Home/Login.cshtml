@@ -1,0 +1,61 @@
+﻿@model defes1.Domain.Usuario
+
+@{
+    ViewBag.Title = "Entrar";
+}
+
+@section styles {
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+}
+
+<h2>LOC@dora</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken() // previne o ataque CSRF
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+        <table>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr><td><p></p></td></tr>
+            <tr>
+                <td>Usuário&nbsp;</td>
+                <td>@Html.TextBoxFor(a => a.UsuarioLogin)</td>
+                <td>@Html.ValidationMessageFor(a => a.UsuarioLogin)</td>
+            </tr>
+            <tr><td><p></p></td></tr>
+            <tr>
+                <td>Senha&nbsp;&nbsp;</td>
+                <td> @Html.PasswordFor(a => a.UsuarioSenha) </td>
+                <td> @Html.ValidationMessageFor(a => a.UsuarioSenha) </td>
+            </tr>
+            <tr><td><p></p></td></tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Entrar" />
+                </td>
+                <td></td>
+            </tr>
+            <tr><td><p></p></td></tr>
+            <tr>
+                <td>Sem acesso?</td>
+                <td><b><a href=@ViewBag.URL>&nbsp;Clique aqui.</a></b></td>
+            </tr>
+        </table>
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

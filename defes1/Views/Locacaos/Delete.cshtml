@@ -1,0 +1,56 @@
+﻿@model defes1.Domain.Locacao
+
+@{
+    ViewBag.Title = "Locações";
+}
+
+<h2>Excluir Locações</h2>
+
+<h3>Deseja realmente excluir?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Filme
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filme.FilmeNome)
+        </dd>
+
+        <dt>
+            Cliente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.ClienteNome)
+        </dd>
+
+        <dt>
+            Criado em
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocacaoData)
+        </dd>
+
+        <dt>
+            Usuário
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.UsuarioLogin)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

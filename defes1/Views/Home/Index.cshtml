@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Bem-vindo";
+}
+
+<!-- carousel -->
+
+<div id="oCarrossel" class="carousel slide" data-ride="carousel">
+ 
+    <ol class="carousel-indicators">
+        <li data-target="#oCarrossel" data-slide-to="0" class="active"></li>
+        <li data-target="#oCarrossel" data-slide-to="1"></li>
+        <li data-target="#oCarrossel" data-slide-to="2"></li>        
+    </ol>
+ 
+    <div class="carousel-inner">
+        <div class="item active">
+            <a href='@Url.Action("Index", "Locacao")'>
+                <img src="~/Images/pipoca22.jpg" alt="Locação">
+            </a>
+            <div class="carousel-caption">
+                <h3>Locação</h3>
+                <p>Quando for trabalhar, clique aqui!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <a href='@Url.Action("Index", "Cliente")'>
+                <img src="~/Images/cliente3.jpg" alt="Clientes">
+            </a>
+            <div class="carousel-caption">
+                <h3>Clientes</h3>
+                <p>Nossa meta é carteira de clientes atualizada e crescendo!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <a href='@Url.Action("Index", "Filme")'>
+                <img src="~/Images/cinema2.jpg" alt="Filmes">                
+            </a>
+            <div class="carousel-caption">
+                <h3>Filmes</h3>
+                <p>Portfólio de produtos.</p>
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#oCarrossel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="right carousel-control" href="#oCarrossel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>

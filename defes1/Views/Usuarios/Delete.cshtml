@@ -1,0 +1,47 @@
+﻿@model defes1.Domain.Usuario
+
+@{
+    ViewBag.Title = "Usuários";
+}
+
+<h2>Excluir Usuários</h2>
+
+<h3>Deseja realmente excluir?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Login
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioLogin)
+        </dd>
+
+        <dt>
+            Senha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioSenha)
+        </dd>
+
+        <dt>
+            Ativo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioAtivo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

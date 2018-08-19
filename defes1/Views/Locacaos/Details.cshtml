@@ -1,0 +1,49 @@
+﻿@model defes1.Domain.Locacao
+
+@{
+    ViewBag.Title = "Locações";
+}
+
+<h2>Detalhar Locações</h2>
+
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Filme
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filme.FilmeNome)
+        </dd>
+
+        <dt>
+            Cliente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.ClienteNome)
+        </dd>
+
+        <dt>
+            Data de Locação
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocacaoData)
+        </dd>
+
+        <dt>
+            Usuário
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.UsuarioLogin)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.LocacaoID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

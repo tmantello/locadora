@@ -1,0 +1,39 @@
+﻿@model IEnumerable<defes1.Domain.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            CPF
+        </th>
+        <th>
+            Nome
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteCPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteNome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ClienteID }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.ClienteID })
+            </td>
+        </tr>
+    }
+
+</table>
