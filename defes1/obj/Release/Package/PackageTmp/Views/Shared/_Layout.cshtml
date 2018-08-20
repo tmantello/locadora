@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LOC@dora.net</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("LOC@dora.net", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("LOCAÇÃO", "Index", "Locacaos")</li>
+                        <li>@Html.ActionLink("CLIENTE", "Index", "Clientes")</li>
+                        <li>@Html.ActionLink("FILME", "Index", "Filmes")</li>
+                        <li>@Html.ActionLink("GÊNERO", "Index", "Generoes")</li>
+                        <li>@Html.ActionLink("USUÁRIO", "Index", "Usuarios")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">OLÁ @ViewBag.Usuario&nbsp;&nbsp;&nbsp;&nbsp;</a></li>                       
+                        <li>
+                            @Html.ActionLink("SAIR", "Logout", "Home")                           
+                        </li>                       
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - LOC@dora.net</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @RenderSection("styles", required: false)
+</body>
+</html>

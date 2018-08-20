@@ -183,6 +183,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FilmeModel.cs" />
+    <Compile Include="Models\GeneroModel.cs" />
     <Compile Include="Models\LocacaoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -196,7 +197,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\camera2.jpg" />
     <Content Include="Images\cinema2.jpg" />
     <Content Include="Images\cliente3.jpg" />
     <Content Include="Images\pipoca21.jpg" />
@@ -237,6 +237,8 @@
     <Content Include="Views\Locacaos\Details.cshtml" />
     <Content Include="Views\Locacaos\Edit.cshtml" />
     <Content Include="Views\Locacaos\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\defes - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\EditorTemplates\GeneroModel.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

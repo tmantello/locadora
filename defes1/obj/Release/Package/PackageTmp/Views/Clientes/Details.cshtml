@@ -1,0 +1,33 @@
+﻿@model defes1.Domain.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhar Clientes</h2>
+
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            CPF
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteCPF)
+        </dd>
+
+        <dt>
+           Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteNome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

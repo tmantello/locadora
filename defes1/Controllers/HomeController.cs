@@ -49,6 +49,13 @@ namespace defes1.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session["UsuarioID"] = null;
+            Session["UsuarioLogin"] = null;
+            return RedirectToAction("Login");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario u)

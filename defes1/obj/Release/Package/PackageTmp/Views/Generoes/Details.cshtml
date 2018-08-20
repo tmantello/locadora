@@ -1,0 +1,41 @@
+﻿@model defes1.Domain.Genero
+
+@{
+    ViewBag.Title = "Gêneros";
+}
+
+<h2>Detalhar Gêneros</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroNome)
+        </dd>
+
+        <dt>
+            Criado em
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroCriacao)
+        </dd>
+
+        <dt>
+            Ativo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroAtivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.GeneroID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

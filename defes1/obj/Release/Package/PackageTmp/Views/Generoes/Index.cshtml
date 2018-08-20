@@ -1,0 +1,20 @@
+﻿@model IEnumerable<defes1.Models.GeneroModel>
+
+@{
+    ViewBag.Title = "Gêneros";
+}
+
+<h2>Gêneros</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create")
+</p>
+
+@using (Html.BeginForm("Delete", "Generoes", FormMethod.Post))
+{
+    <table class="table">
+        <thead> <tr> <th> Selecionar </th> <th> Nome </th> <th> Criado em </th> <th> Ativo </th> <th></th> </tr> </thead>
+        <tbody> @Html.EditorForModel() </tbody>
+    </table>
+    <input type="submit" value="Excluir Selecionados" class="btn btn-default" />
+}

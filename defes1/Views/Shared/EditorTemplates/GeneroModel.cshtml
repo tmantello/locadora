@@ -1,0 +1,12 @@
+﻿@model defes1.Models.GeneroModel
+
+<tr>
+    <td>
+        <input type="checkbox" name="generoIdsToDelete" id="generoIdsToDelete" value="@Model.GeneroID" />
+    </td>
+    <td> @Model.GeneroNome</td>
+    <td> @Model.GeneroCriacao</td>
+    <td> @Html.DisplayFor(modelItem => Model.GeneroAtivo)
+    </td>
+    <td> @Html.ActionLink("Editar", "Edit", new { id = Model.GeneroID })</td>
+</tr>

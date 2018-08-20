@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="contexto-Web.config Connection String" description="contexto A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="server=.\SQLEXPRESS;database=contexto;integrated security=false;user id=base;password=12345678;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\mantello\\source\\repos\\locadora\\defes1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='contexto']/@connectionString" />
+  </parameter>
+</parameters>

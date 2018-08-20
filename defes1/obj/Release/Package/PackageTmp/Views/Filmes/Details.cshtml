@@ -1,0 +1,49 @@
+﻿@model defes1.Domain.Filme
+
+@{
+    ViewBag.Title = "Filmes";
+}
+
+<h2>Detalhar Filmes</h2>
+
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeNome)
+        </dd>
+
+        <dt>
+            Gênero
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.GeneroNome)
+        </dd>
+
+        <dt>
+            Criado em
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeCriacao)
+        </dd>
+
+        <dt>
+            Ativo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmeAtivo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.FilmeID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

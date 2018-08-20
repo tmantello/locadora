@@ -32,12 +32,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">OLÁ @ViewBag.Usuario&nbsp;&nbsp;&nbsp;&nbsp;</a></li>                       
-                            <li>
-                                <a href="javascript:document.getElementById('logoutForm').submit()">
-                                    SAIR
-                                    <span class="glyphicon glyphicon-log-out"></span>
-                                </a>
-                            </li>                       
+                        <li>
+                            @Html.ActionLink("SAIR", "Logout", "Home")                           
+                        </li>                       
                     </ul>
                 </div>
             }

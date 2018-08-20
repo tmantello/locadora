@@ -1,9 +1,12 @@
 ﻿using defes1.Domain;
+using defes1.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Web;
 
 namespace defes1.Controllers
 {
@@ -16,12 +19,26 @@ namespace defes1.Controllers
         {
             if (Session["UsuarioLogin"] != null)
             {
-                string usuarioLogado = string.Empty;
-                usuarioLogado = Session["UsuarioLogin"].ToString().Trim().Length > 1 ? Session["UsuarioLogin"].ToString().Trim().ToUpper() : Session["UsuarioLogin"].ToString().Trim();
+                @ViewBag.Usuario = getUser();
 
-                @ViewBag.Usuario = usuarioLogado;
+                List<Genero> objLista = db.Generos.ToList();
+                if (objLista != null && objLista.Count > 0)
+                {
+                    List<GeneroModel> generoModels = new List<GeneroModel>();
+                    foreach (Genero item in objLista)
+                    {
+                        generoModels.Add(new GeneroModel
+                        { GeneroAtivo = item.GeneroAtivo,
+                          GeneroCriacao = item.GeneroCriacao,
+                          GeneroID = item.GeneroID,
+                          GeneroNome = item.GeneroNome                         
+                        });
+                    }
 
-                return View(db.Generos.ToList());
+                    return View(generoModels);
+                }
+                else
+                    return View();
             }
             else
             {
@@ -31,48 +48,48 @@ namespace defes1.Controllers
 
         // ---------------------------------------------------
 
-        //[HttpPost, ActionName("Index")]
+        //[HttpPost]//, ActionName("Index")]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id)
+        //public ActionResult Index(IEnumerable<GeneroModel> GeneroModel)
         //{
-        //    Genero genero = db.Generos.Find(id);
-        //    db.Generos.Remove(genero);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
+        //    if (GeneroModel.Count(x => x.GeneroSelecionado) == 0)
+        //        return View(db.Generos.ToList()); // não faz nada
+        //    else
+        //    {
+        //        foreach (GeneroModel item in GeneroModel)
+        //        {
+        //            if (item.GeneroSelecionado) // excluir selecionados
+        //            {
+        //                Genero genero = db.Generos.Find(item.GeneroID);
+        //                db.Generos.Remove(genero);
+        //                db.SaveChanges();
+        //            }
+        //        }
+        //    }
+
+        //    return View(db.Generos.ToList());
         //}
 
-
-        [HttpPost, ActionName("Index")]
-        public ActionResult IndexPost(int[] deleteInputs)
+        [HttpPost]
+        public ActionResult Delete(IEnumerable<int> generoIdsToDelete)
         {
-            var model = new Genero(); //genero.AllIncluding(message => message.Product);
-
-            if (deleteInputs == null)
+            List<Genero> objLista = db.Generos.ToList();
+            foreach (int item in generoIdsToDelete)
             {
-                ModelState.AddModelError("", "Nenhum item selecionado para exclusão!");
-                return View(model);
-            }
-
-            foreach (var item in deleteInputs)
-            {
-                try
+                foreach (Genero gen in objLista)
                 {
-                   // messageRepository.Delete(item);
-                }
-                catch (Exception err)
-                {
-                    ModelState.AddModelError("", "Erro no item " + item.ToString() + " : " + err.Message);
-                    return View(model);
+                    if (item == gen.GeneroID)
+                    {
+                        Genero genero = db.Generos.Find(item);
+                        db.Generos.Remove(genero);
+                        db.SaveChanges();
+                        break;
+                    }
                 }
             }
-
-           // messageRepository.Save();
-            ModelState.AddModelError("", deleteInputs.Count().ToString() + " itens excluídos com sucesso.");
-
-            return View(model);
+          
+            return RedirectToAction("Index");
         }
-
-
 
 
         // ---------------------------------------------------
@@ -95,6 +112,8 @@ namespace defes1.Controllers
         // GET: Generoes/Create
         public ActionResult Create()
         {
+            @ViewBag.Usuario = getUser();
+
             return View();
         }
 
@@ -118,6 +137,7 @@ namespace defes1.Controllers
         // GET: Generoes/Edit/5
         public ActionResult Edit(int? id)
         {
+            @ViewBag.Usuario = getUser();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -149,6 +169,7 @@ namespace defes1.Controllers
         // GET: Generoes/Delete/5
         public ActionResult Delete(int? id)
         {
+            @ViewBag.Usuario = getUser();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -162,15 +183,15 @@ namespace defes1.Controllers
         }
 
         // POST: Generoes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Genero genero = db.Generos.Find(id);
-            db.Generos.Remove(genero);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Genero genero = db.Generos.Find(id);
+        //    db.Generos.Remove(genero);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {
@@ -179,6 +200,14 @@ namespace defes1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public string getUser()
+        {
+            if (Session["UsuarioLogin"] != null)
+                return Session["UsuarioLogin"].ToString().Trim().Length > 1 ? Session["UsuarioLogin"].ToString().Trim().ToUpper() : Session["UsuarioLogin"].ToString().Trim();
+            else
+                return "";
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model defes1.Domain.Cliente
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Excluir Clientes</h2>
+
+<h3>Deseja realmente excluir?</h3>
+<div>    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            CPF
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteCPF)
+        </dd>
+
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteNome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

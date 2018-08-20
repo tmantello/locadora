@@ -1,0 +1,32 @@
+﻿@model IEnumerable<defes1.Domain.Locacao>
+
+@{
+    ViewBag.Title = "Locações";
+}
+
+<h2>Locações</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Data
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocacaoData)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.LocacaoID }) |            
+            @Html.ActionLink("Excluir", "Delete", new { id=item.LocacaoID })
+        </td>
+    </tr>
+}
+
+</table>
