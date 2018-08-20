@@ -13,6 +13,7 @@ Conforme especificado:
 - o resto o EF Code First faz
 
 Link da aplicação na nuvem Microsoft (Azure): http://defes.azurewebsites.net/
+
 Testei nos navegadores Firefox, Chrome e IE/Edge
 Responsivo (teste no Moto G5 Plus e Samsung J7 Pro)
 
