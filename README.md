@@ -1,4 +1,4 @@
-# locadora
+# Locadora
 Entity Framework (Code First) com Dapper
 
 Antes de falar sobre o sistema, eu gostaria de explicar:
@@ -15,6 +15,7 @@ Conforme especificado:
 Link da aplicação na nuvem Microsoft (Azure): http://defes.azurewebsites.net/
 
 Testei nos navegadores Firefox, Chrome e IE/Edge
+
 Responsivo (teste no Moto G5 Plus e Samsung J7 Pro)
 
 Obrigado pela oportunidade!
