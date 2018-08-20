@@ -20,4 +20,5 @@ Responsivo (teste no Moto G5 Plus e Samsung J7 Pro)
 
 
 Obrigado pela oportunidade!
+
 Tiago Mantello
