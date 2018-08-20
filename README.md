@@ -12,7 +12,7 @@ Conforme especificado:
 - adicionar este usuário na string de conexão (web.config)
 - o resto o EF Code First faz
 
-Link da aplicação na nuvem Microsoft (Azure): http://defes.azurewebsites.net/
+Link da aplicação na nuvem Microsoft (Azure): http://defes.azurewebsites.net/ (Usuário: admin / Senha: admin)
 
 Testei nos navegadores Firefox, Chrome e IE/Edge
 
