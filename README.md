@@ -19,6 +19,7 @@ Testei nos navegadores Firefox, Chrome e IE/Edge
 
 Responsivo (teste no Moto G5 Plus e Samsung J7 Pro)
 
+Obs.: as datas na aplicação estão no formato americano (yyyy/MM/dd, ou seja, 4 dígitos p/ o ano, 2 dígitos para o mês e 2 dígitos para o dia).
 
 Obrigado pela oportunidade!
 
